@@ -430,9 +430,11 @@ section {
   z-index: 22;
   left: 50%;
   margin-left: -260px;
-  top: 65px;
+  top: 20px;
   display: none;
+  padding: 50px;
 }
+
 .contact-form .wechat-div span:hover .erweima {
   display: block;
 }
