@@ -20,8 +20,10 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row justify-content-center">
-                                <h3 class="text-center col-12 mb-4"><text class="myname"></text>的分数为 <text class="mygrade h2" style="color: red;">0</text></h3>
-                                <button class="btn btn-success col-3" onclick="showError()">显示错题</button>
+                                <h3 class="text-center col-12 mb-4"><text class="myname"></text>的分数为 <text class="mygrade h2" style="color: red;">0</text>/60</h3>
+                                <h6 class="sm text-center col-12">你已经完成答题（非编程题共60分），请勿重复提交，等待师兄登记分数才可关闭页面！</h6>
+                                <h6 class="sm text-center col-12">请认真查看错题才可关闭页面，一旦刷新将丢失作答数据！</h6>
+                                <button id="showError" class="btn btn-success col-3" onclick="showError()">显示错题</button>
                         </div>
                     </div>
                 </div>
@@ -501,6 +503,7 @@ System.out.println("a = " + a);</code></pre>
                 </div>
               </form>
         </div>
+        <h6 class="text-center sm mt-5">由ToTwoStudio提供技术支持</h6>
     </div>
     <script src='js/main.js'></script>
 </body>
