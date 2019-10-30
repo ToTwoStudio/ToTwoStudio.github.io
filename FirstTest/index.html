@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>ToTwoStudio第一期考核</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='js/main.css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="js/jquery.cookie.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="m-5 text-center">ToTwoStudio第一期考核</h1>
+        <div class=" row justify-content-center">
+            <div id="form-grade" class="col-12 col-lg-9" style="display: none;">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row justify-content-center">
+                                <h3 class="text-center col-12 mb-4"><text class="myname"></text>的分数为 <text class="mygrade h2" style="color: red;">0</text></h3>
+                                <button class="btn btn-success col-3" onclick="showError()">显示错题</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="form-subject">
+            <form onsubmit="return check()">
+                <div class="form-group row justify-content-center">
+                  <label for="username" class="col-12 col-lg-1 h5 pt-2">姓名:</label>
+                  <div class="col-12 col-lg-8 mt-2">
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Name">
+                  </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class=" col-12 col-lg-9">
+                        <!-- 第1题 -->
+                        <div class="card" id="subject1">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label class="h6 mb-2">（1）分析代码，选择输出结果
+                                        <pre class="bg-gray"><code>String s1 = "welcome";
+String s2 = "welcome";
+String s3 = new String("welcome");
+System.out.println(s1==s2);
+System.out.println(s1==s3);
+System.out.println(s1.equals(s2));
+System.out.println(s1.equals(s3));</code></pre>
+                                    </label>
+                                    <div class="radio ml-4">
+                                        <label>
+                                            <input type="radio" name="subject1" value="A" checked>
+                                            A. true true true true
+                                        </label>
+                                    </div>
+                                    <div class="radio ml-4">
+                                        <label>
+                                            <input type="radio" name="subject1" value="B">
+                                            B. true false true true
+                                        </label>
+                                    </div>
+                                    <div class="radio ml-4">
+                                        <label>
+                                            <input type="radio" name="subject1" value="C">
+                                            C. false false true true
+                                        </label>
+                                    </div>
+                                    <div class="radio ml-4">
+                                        <label>
+                                            <input type="radio" name="subject1" value="D">
+                                            D. true true false false
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 第2题 -->
+                        <div class="card mt-2" id="subject2">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label class="h6 mb-2">（2）int和Integer的区别？</label>
+                                    <div class="radio ml-4">
+                                        <label>
+                                            <input type="radio" name="subject2" value="A" checked>
+                                            A. int为基本类型，默认值为0；Integer为基本类型，默认值为0；
+                                        </label>
+                                    </div>
+                                    <div class="radio ml-4">
+                                        <label>
+                                            <input type="radio" name="subject2" value="B">
+                                            B. int为基本类型，默认值为0；Integer为引用类型，默认值为0；
+                                        </label>
+                                    </div>
+                                    <div class="radio ml-4">
+                                        <label>
+                                            <input type="radio" name="subject2" value="C">
+                                            C. int为基本类型，默认值为0；Integer为引用类型，默认值为null；
+                                        </label>
+                                    </div>
+                                    <div class="radio ml-4">
+                                        <label>
+                                            <input type="radio" name="subject2" value="D">
+                                            D. int为基本类型，默认值为null；Integer为引用类型，默认值为null；
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 第3题 -->
+                        <div class="card mt-2" id="subject3">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label class="h6 mb-2">（3）下列关于Java语言的特点，描述错误的是</label>
+                                    <div class="radio ml-4">
+                                        <label>
+                                            <input type="radio" name="subject3" value="A" checked>
+                                            A. Java是跨平台的编程语言
+                                        </label>
+                                    </div>
+                                    <div class="radio ml-4">
+                                        <label>
+                                            <input type="radio" name="subject3" value="B">
+                                            B. Java支持分布式计算
+                                        </label>
+                                    </div>
+                                    <div class="radio ml-4">
+                                        <label>
+                                            <input type="radio" name="subject3" value="C">
+                                            C. Java是面向过程的编程语言
+                                        </label>
+                                    </div>
+                                    <div class="radio ml-4">
+                                        <label>
+                                            <input type="radio" name="subject3" value="D">
+                                            D. Java支持多线程
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 第4题 -->
+                        <div class="card mt-2" id="subject4">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label class="h6 mb-2">（4）下列哪个是合法的标识符？</label>
+                                        <div class="radio ml-4">
+                                            <label>
+                                                <input type="radio" name="subject4" value="A" checked>
+                                                A. 1234
+                                            </label>
+                                        </div>
+                                        <div class="radio ml-4">
+                                            <label>
+                                                <input type="radio" name="subject4" value="B">
+                                                B. _name
+                                            </label>
+                                        </div>
+                                        <div class="radio ml-4">
+                                            <label>
+                                                <input type="radio" name="subject4" value="C">
+                                                C. class
+                                            </label>
+                                        </div>
+                                        <div class="radio ml-4">
+                                            <label>
+                                                <input type="radio" name="subject4" value="D">
+                                                D. null
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 第5题 -->
+                            <div class="card mt-2" id="subject5">
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label class="h6 mb-2">（5）执行下列代码后，a和b的值分别是多少？
+                                                <pre class="bg-gray"><code>int a = 0;
+int b = 0;
+a = a++;
+b = ++b;</code></pre>
+                                            </label>
+                                            <div class="radio ml-4">
+                                                <label>
+                                                    <input type="radio" name="subject5" value="A" checked>
+                                                    A. a = 1 ; b = 1 ;
+                                                </label>
+                                            </div>
+                                            <div class="radio ml-4">
+                                                <label>
+                                                    <input type="radio" name="subject5" value="B">
+                                                    B.  a = 1 ; b = 0 ;
+                                                </label>
+                                            </div>
+                                            <div class="radio ml-4">
+                                                <label>
+                                                    <input type="radio" name="subject5" value="C">
+                                                    C.  a = 0 ; b = 1 ;
+                                                </label>
+                                            </div>
+                                            <div class="radio ml-4">
+                                                <label>
+                                                    <input type="radio" name="subject5" value="D">
+                                                    D.  a = 0 ; b = 0 ;
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                            <!-- 第6题 -->
+                            <div class="card mt-2" id="subject6">
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label class="h6 mb-2">（6）下列哪个访问修饰符作用范围由大到小排列是正确的？</label>
+                                            <div class="radio ml-4">
+                                                <label>
+                                                    <input type="radio" name="subject6" value="A" checked>
+                                                    A. private > default > protected > public
+                                                </label>
+                                            </div>
+                                            <div class="radio ml-4">
+                                                <label>
+                                                    <input type="radio" name="subject6" value="B">
+                                                    B. public > default > protected > private
+                                                </label>
+                                            </div>
+                                            <div class="radio ml-4">
+                                                <label>
+                                                    <input type="radio" name="subject6" value="C">
+                                                    C. public > protected > private > default
+                                                </label>
+                                            </div>
+                                            <div class="radio ml-4">
+                                                <label>
+                                                    <input type="radio" name="subject6" value="D">
+                                                    D. public > protected > default > private
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                            <!-- 第7题 -->
+                            <div class="card mt-2" id="subject7">
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label class="h6 mb-2">（7）分析代码，选择输出结果
+                                                <pre class="bg-gray"><code>String x = "7";
+int y = 2;
+int z = 2;
+System.out.println(x + y + z);</code></pre>
+                                            </label>
+                                            <div class="radio ml-4">
+                                                <label>
+                                                    <input type="radio" name="subject7" value="A" checked>
+                                                    A. 722
+                                                </label>
+                                            </div>
+                                            <div class="radio ml-4">
+                                                <label>
+                                                    <input type="radio" name="subject7" value="B">
+                                                    B. 11
+                                                </label>
+                                            </div>
+                                            <div class="radio ml-4">
+                                                <label>
+                                                    <input type="radio" name="subject7" value="C">
+                                                    C. 74
+                                                </label>
+                                            </div>
+                                            <div class="radio ml-4">
+                                                <label>
+                                                    <input type="radio" name="subject7" value="D">
+                                                    D. 程序编译错误
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                            <!-- 第8题 -->
+                            <div class="card mt-2" id="subject8">
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label class="h6 mb-2">（8）分析代码，选择输出结果
+                                                <pre class="bg-gray"><code>String x = "7";
+int y = 2;
+int z = 2;
+System.out.println(y + z + x);</code></pre>
+                                            </label>
+                                            <div class="radio ml-4">
+                                                <label>
+                                                    <input type="radio" name="subject8" value="A" checked>
+                                                    A. 227
+                                                </label>
+                                            </div>
+                                            <div class="radio ml-4">
+                                                <label>
+                                                    <input type="radio" name="subject8" value="B">
+                                                    B. 11
+                                                </label>
+                                            </div>
+                                            <div class="radio ml-4">
+                                                <label>
+                                                    <input type="radio" name="subject8" value="C">
+                                                    C. 47
+                                                </label>
+                                            </div>
+                                            <div class="radio ml-4">
+                                                <label>
+                                                    <input type="radio" name="subject8" value="D">
+                                                    D. 程序编译错误
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                            <!-- 第9题 -->
+                            <div class="card mt-2" id="subject9">
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label class="h6 mb-2">（9）分析代码，选择输出结果
+                                                <pre class="bg-gray"><code>int a = 0;
+for(int i = 0 ; i < 10 ; i ++){
+    a++;
+}
+System.out.println("a = " + a);</code></pre>
+                                            </label>
+                                            <div class="radio ml-4">
+                                                <label>
+                                                    <input type="radio" name="subject9" value="A" checked>
+                                                    A. a = 0
+                                                </label>
+                                            </div>
+                                            <div class="radio ml-4">
+                                                <label>
+                                                    <input type="radio" name="subject9" value="B">
+                                                    B. a = 9
+                                                </label>
+                                            </div>
+                                            <div class="radio ml-4">
+                                                <label>
+                                                    <input type="radio" name="subject9" value="C">
+                                                    C. a = 10
+                                                </label>
+                                            </div>
+                                            <div class="radio ml-4">
+                                                <label>
+                                                    <input type="radio" name="subject9" value="D">
+                                                    D. a = 11
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                            <!-- 第10题 -->
+                            <div class="card mt-2" id="subject10">
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label class="h6 mb-2">（10）分析代码，选择输出结果
+                                                <pre class="bg-gray"><code>int a = 0;
+while(a!=9){
+    a = a + 2 ;
+}
+System.out.println("a = " + a);</code></pre>
+                                            </label>
+                                            <div class="radio ml-4">
+                                                <label>
+                                                    <input type="radio" name="subject10" value="A" checked>
+                                                    A. a = 0
+                                                </label>
+                                            </div>
+                                            <div class="radio ml-4">
+                                                <label>
+                                                    <input type="radio" name="subject10" value="B">
+                                                    B. a = 8
+                                                </label>
+                                            </div>
+                                            <div class="radio ml-4">
+                                                <label>
+                                                    <input type="radio" name="subject10" value="C">
+                                                    C. a = 10
+                                                </label>
+                                            </div>
+                                            <div class="radio ml-4">
+                                                <label>
+                                                    <input type="radio" name="subject10" value="D">
+                                                    D. 无限循环
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                            <!-- 第11题 -->
+                            <div class="card mt-2" id="subject11">
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label class="h6 mb-2">（11）下列二维数组新建错误的是</label>
+                                            <div class="radio ml-4">
+                                                <label>
+                                                    <input type="radio" name="subject11" value="A" checked>
+                                                    A. int[][] a = new int[10][];
+                                                </label>
+                                            </div>
+                                            <div class="radio ml-4">
+                                                <label>
+                                                    <input type="radio" name="subject11" value="B">
+                                                    B. int[][] a = new int[][];
+                                                </label>
+                                            </div>
+                                            <div class="radio ml-4">
+                                                <label>
+                                                    <input type="radio" name="subject11" value="C">
+                                                    C. int[][] a = new int[10][10];
+                                                </label>
+                                            </div>
+                                            <div class="radio ml-4">
+                                                <label>
+                                                    <input type="radio" name="subject11" value="D">
+                                                    D. int[][] a = { { 1 , 2 } , { 1 , 2 } };
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                            <!-- 第12题 -->
+                            <div class="card mt-2" id="subject12">
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label class="h6 mb-2">（12）分析代码，选择输出结果
+                                                    <pre class="bg-gray"><code>int a = 0;
+switch(a){
+    case 0:
+        a = a + 1;
+    case 1:
+        a = a + 1;
+        break;
+    case 2:
+        a = a + 1;
+        break;
+}
+System.out.println("a = " + a);</code></pre>
+                                            </label>
+                                            <div class="radio ml-4">
+                                                <label>
+                                                    <input type="radio" name="subject12" value="A" checked>
+                                                    A. a = 0
+                                                </label>
+                                            </div>
+                                            <div class="radio ml-4">
+                                                <label>
+                                                    <input type="radio" name="subject12" value="B">
+                                                    B. a = 1
+                                                </label>
+                                            </div>
+                                            <div class="radio ml-4">
+                                                <label>
+                                                    <input type="radio" name="subject12" value="C">
+                                                    C. a = 2
+                                                </label>
+                                            </div>
+                                            <div class="radio ml-4">
+                                                <label>
+                                                    <input type="radio" name="subject12" value="D">
+                                                    D.a = 3
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                            <!-- 填空题 -->
+                            <div class="card mt-2">
+                                    <div class="card-body">
+                                        <div class="form-group row">
+                                            <text class="h6 mt-2">（13）基本类型一共有</text>
+                                            <input type="text" class="form-control col-1 ml-1 mr-1" id="subject131">
+                                            <text class="h6 mt-2">种，分别是（每种用空格隔开，不分先后顺序）：</text>
+                                            <input type="text" class="form-control col-12 mt-2" id="subject132">
+                                        </div>
+                                    </div>
+                            </div>
+                            <!-- 编程题 -->
+                            <div class="card mt-2">
+                                    <div class="card-body">
+                                        <div class="form-group row">
+                                                <label class="h6 mb-2">（14）假设输入一个int型一维数组a，数组里有n个整数，现在需要将数组由小到大排序，并将排序好的数组输出。（只需要一种方法即可，测试最快的排序算法，不能使用Java内置排序函数）（40分）</label>
+                                                <pre class="bg-gray"><code>public static int[] sort(int[] a){
+    //do something
+    return a;
+}</code></pre>
+                                        </div>
+                                    </div>
+                            </div>
+                        <!-- 结束 -->
+                    </div>
+                    
+                </div>
+                <div class="form-group row justify-content-center mt-5">
+                    <input type="submit" class="btn btn-info col-lg-6 col-10" value="提交">
+                </div>
+              </form>
+        </div>
+    </div>
+    <script src='js/main.js'></script>
+</body>
+</html>

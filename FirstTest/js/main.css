@@ -1,0 +1,11 @@
+.bg-gray{
+    margin-top: 0.5rem;
+    background-color: gainsboro;
+    padding: 1rem;
+}
+.bg-error-red{
+    background-color: rgba(255, 129, 129, 0.5);
+}
+.bg-success-greed{
+    background-color:rgba(118, 245, 101, 0.5);
+}
