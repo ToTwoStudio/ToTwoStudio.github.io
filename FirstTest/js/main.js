@@ -1,6 +1,6 @@
 $(document).ready(function(){
     if($.cookie("isComplete")){
-        var comData = $.cookie("comData");
+        var comData = $.cookie("comData").split(",");
         $("#form-subject").hide();
         $("#form-grade").show();
         $("input").prop("disabled", true);
@@ -49,7 +49,7 @@ function check(){
         $("#subject132").css({ background : "rgba(255, 129, 129, 0.5) "});
     }
     $.cookie("isComplete", true);
-    $.cookie("comData", [username,grade]);
+    $.cookie("comData", [username,grade].join(','));
     $("#form-subject").hide();
     $("#form-grade").show();
     $(".myname").html(username);
